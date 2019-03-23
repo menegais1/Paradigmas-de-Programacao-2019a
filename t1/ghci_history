@@ -1,0 +1,46 @@
+isVowel 'd'
+isVowel 'e'
+:l t1.hs
+isVowel 'a'
+abbreviate ["Era uma vez uma historia"," da chapeuzinho","vermelho"]
+:l t1.hs
+abbreviate ["Era uma vez uma historia"," da chapeuzinho","vermelho"]
+:l t1.hs
+betterEncodeName "Eddie Vedder"
+:l t1.hs
+userName "Marechal Deodoro da Fonseca"
+:l t1.hs
+lastName "Joao Pedro Machado"
+:l t1.hs
+:l t1.hs
+lastName "Joao Pedro Machado"
+:l t1.hs
+:l t1.hs
+isInt "1234"
+isInt "1234a"
+:l t1.hs
+isInt "teste"
+firstName "Joao Pedro Machado"
+removeNotSpaceB "So os loucos sabem"
+removeNotSpaceA "Ceu Azul"
+:l t1.hs
+:l t1.hs
+:l t1.hs
+removeVowelA "FELIPE"
+removeVowela "FELIPE"
+removeVowelB "FELIPE"
+removeVowelA "roberto"
+:l t1.hs
+htmlListItemsA ["ala","ka","zam"]
+semVogais "andrea"
+:l t1.hs
+htmlListItemsB ["abra", "ca", "dabra"]
+htmlListItemsA ["abra", "ca", "dabra"]
+:l t1.hs
+:l t1.hs
+:l t1.hs
+addComma ["Hello","is","it","me","you","looking","for"]
+:l t1.hs
+isVowel 'b'
+isVowel 'A'
+:l t1.hs
