@@ -1,52 +1,67 @@
-genCase3
-:l t2.hs
-genCase3
-:l t2.hs
-genCase3
-:l t2.hs
-concat [genCircles (x,y) 30 15 2 pi | (x,y) <- genGridPosition 200 200 3 3 10]
-genCase3
-:l t2.hs
-:l t2.hs
-:l t2.hs
-:l t2.hs
-:l t2.hs
-:l t2.hs
-:l t2.hs
-:l t2.hs
-genGridPosition 500 500 2 2 10
-:l t2.hs
-genGridPosition 500 500 2 3 10
-genGridPosition 500 500 3 3 10
-genGridPosition 500 500 10 5 10
-:l t2.hs
-:l t2.hs
 genCase2
 genCase3
 :l t2.hs
+genCase1
+genCase4
 genCase3
-:l t2.hs
-genCase3
-:l t2.hs
-genCase3
-:l t2.hs
-genCase3
-:l t2.hs
-genCase3
-:l t2.hs
-genCircles (1500/2,500/2) 15 100 16 (pi*2)
-genCircles (1500/2,500/2) 15 100 16 $ pi*2
-genCircles (1500/2,500/2) 15 100 16 pi*2
-genCircles (w/2,h/2) 15 100 16 pi*2
-genCircles (w/2,h/2) 15 100 16 pi2
 genCase2
+genCase1
 :l t2.hs
+genCase4
+genCase3
 genCase2
+genCase1
 :l t2.hs
-genCase2
+genCase4
+:l t2.hs
+genCase4
+:l t2.hs
+genCase4
 :l t2.hs
 :l t2.hs
-genCase2
+genCase4
+:l t2.hs
+genCase4
+:l t2.hs
+genCase4
+:l t2.hs
+:l t2.hs
+genCase4
+:l t2.hs
+:l t2.hs
+:l t2.hs
+:l t2.hs
+genCase4
+:l t2.hs
+genCase4
+:l t2.hs
+genCase4
+:l t2.hs
+genCase4
+:l t2.hs
+genCase4
+:l t2.hs
+genCase4
+:l t2.hs
+genCase4
+:l t2.hs
+genCase4
+:l t2.hs
+genCase4
+:l t2.hs
+genCase4
+:l t2.hs
+genCase4
+:l t2.hs
+genCase4
+genCirclesSenoid (0,0) 15 10 pi
+:l t2.hs
+genCirclesSenoid (0,0) 15 10 pi
+:l t2.hs
+genCirclesSenoid (0,0) 15 10 pi
+:l t2.hs
+genCirclesSenoid (0,0) 15 10 pi
+genCase4
 :l t2.hs
 :l t2.hs
 :l t2.hs
