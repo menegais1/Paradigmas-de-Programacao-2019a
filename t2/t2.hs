@@ -14,13 +14,17 @@ genRects :: Float -> Float -> Int -> Int -> Int -> [Rect]
 genRects w h l c gap = 
   [(((fromIntegral gap + w) *  (fromIntegral i), (fromIntegral gap + h) * (fromIntegral j)),w,h) | i <- [0..l - 1], j <- [0..c - 1]]
 
-genCircles :: Point -> Float -> Float -> Int -> [Circle]
-genCircles (x,y) r totalR nCircles = 
-  [((x + (cos i * totalR),y + (sin i * totalR)),r) | i <- [0,step..pi2]]
-  where step = pi2 / fromIntegral nCircles
-        pi2 = 2 * pi
-  
-  
+genGridPosition :: Float -> Float -> Int -> Int -> Int -> [Point]
+genGridPosition w h l c gap = 
+  [(((squareWidth / 2 + fromIntegral gap) * fromIntegral j), ((squareHeigth / 2 + fromIntegral gap) * fromIntegral i)) | i <- [1..l], j <- [1..c]]
+  where squareWidth = w / fromIntegral c
+        squareHeigth = h / fromIntegral l
+
+genCircles :: Point -> Float -> Float -> Int -> Float -> [Circle]
+genCircles (x,y) r totalR nCircles lastValue = 
+  [((x + (cos i * totalR),y - (sin i * totalR)),r) | i <- [0,step..lastValue]]
+  where step = lastValue / fromIntegral nCircles
+
 svgRect :: Rect -> String -> String 
 svgRect ((x,y),w,h) style = 
   printf "<rect x='%.3f' y='%.3f' width='%.2f' height='%.2f' style='%s' />\n" x y w h style
@@ -61,7 +65,18 @@ genCase2 = do
   writeFile "case2.svg" $ svgstrs
   where svgstrs = svgBegin w h ++ svgfigs ++ svgEnd
         svgfigs = svgElements svgCircle circles (map svgStyle palette)
-        circles = genCircles (w/2,h/2) 15 100 16
+        circles = genCircles (w/2,h/2) 15 100 16 pi2
+        pi2 = pi * 2
         palette = rgbPalette ncircles
         ncircles = 16
+        (w,h) = (1500,500) -- width,height da imagem SVG
+
+genCase3 :: IO()
+genCase3 = do
+  writeFile "case3.svg" $ svgstrs
+  where svgstrs = svgBegin w h ++ svgfigs ++ svgEnd
+        svgfigs = svgElements svgCircle circles (map svgStyle palette)
+        circles =  concat [genCircles (x,y) 30 15 2 pi | (x,y) <- genGridPosition 500 500 3 3 30]
+        palette = rgbPalette ncircles
+        ncircles = 27
         (w,h) = (1500,500) -- width,height da imagem SVG
