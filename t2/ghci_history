@@ -1,100 +1,61 @@
-genCase1
-:l t2.hs 
-genCase1
-:l t2.hs 
-genCase1
-:l t2.hs 
-genCase1
-:l t2.hs 
-genCase1
-:l t2.hs 
-genCase1
-:l t2.hs 
-genCase1
-:l t2.hs 
-genCase1
-:l t2.hs 
-genCase1
-:l t2.hs 
-:l t2.hs 
-genCase1
-:l t2.hs 
-genCase1
-:l t2.hs 
-genCase1
-:l t2.hs 
-genCase1
-:l t2.hs 
-genCase1
-:l t2.hs 
-:l t2.hs 
-:l t2.hs 
-genCase1
-:l t2.hs 
-:l t2.hs 
-:l t2.hs 
-genCase1
-:l t2.hs 
-genCase1
-genCase1
-:l t2.hs 
-genCase1
-:l t2.hs 
-genCase1
-:l t2.hs 
-:l t2.hs 
-genCase1
-:l t2.hs 
-genRects ((1,0),50,50) 3 3 30
-genCase1
-:l t2.hs 
-genCase1
-:l t2.hs 
-genCase1
-:l t2.hs 
-genCase1
-genRects ((10,0),50,50) 3 3 10
-:l t2.hs 
-genRects ((10,0),50,50) 3 3 10
-:l t2.hs 
-genCase1
-:l t2.hs 
-genCase1
-:l t2.hs 
-genCase1
-:l t2.hs 
-genCase1
-:l t2.hs 
-:l t2.hs 
-:l t2.hs 
-genCase1
-:l t2.hs 
-genCase1
-:l t2.hs 
-genCase1
-:l t2.hs 
-genCase1
-:l t2.hs 
-genRects ((0,0),10,10) 3 5
-genCase1
-:l t2.hs 
-genCase1
-:l t2.hs 
-genCase1
-:l t2.hs 
-genCase1
-:l t2.hs 
-genCase1
-:l t2.hs 
-genCase1
-:l t2.hs 
-genCase1
-:l t2.hs 
-:l t2.hs 
-genCase1
-:l t2.hs 
-genCase1
-:l t2.hs 
-:l t2.hs 
-:l t2.hs 
-:l t2.hs 
+genCase2
+:l t2.hs
+l t2.hs
+genCase2
+genCase2
+:l t2.hs
+genCase2
+:l t2.hs
+genCase2
+:l t2.hs
+genCase2
+:l t2.hs
+genCase2
+genCase2
+:l t2.hs
+genCase2
+:l t2.hs
+:l t2.hs
+:l t2.hs
+:l t2.hs
+genCase2
+:l t2.hs
+genCase2
+:l t2.hs
+genCase2
+:l t2.hs
+genCase2
+:l t2.hs
+genCase2
+:l t2.hs
+genCase2
+:l t2.hs
+genCase2
+:l t2.hs
+genCase2
+:l t2.hs
+genCase2
+:l t2.hs
+genCase2
+:l t2.hs
+genCircles (40,40) 10 50 10
+genCase2
+genCircles (40,40) 10 30 10
+:l t2.hs
+genCase2
+genCircles (40,40) 10 30 10
+genCircles 10 30 10
+:l t2.hs
+genCase2
+genCircles 10 30 10
+:l t2.hs
+:l t2.hs
+genCircles 10 30 10
+genCase2
+:l t2.hs
+:l t2.hs
+:l t2.hs
+:l t2.hs
+:l t2.hs
+:l t2.hs
+:l t2.hs
