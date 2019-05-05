@@ -1,13 +1,3 @@
-relacionamento(anita,bernado).
-relacionamento(bernardo,caren).
-relacionamento(anita,pedro).
-relacionamento(pedro,alice).
-relacionamento(alice,henrique).
-relacionamento(henrique,bia).
-relacionamento(maria,adriano).
-relacionamento(adriano,caren).
-
-
 ciume(anita,alice).
 ciume(anita,caren).
 
@@ -65,16 +55,17 @@ apartamento(bernardo,sexta).
 apartamento(maria,segunda).
 apartamento(maria,sexta).
 
-motivacao(P) :- pobre(P);insano(P);ciume(anita,P).
+motivo(P) :- pobre(P);insano(P);ciume(anita,P).
 
 rouboBastao(P) :- portoAlegre(P, quinta);santaMaria(P, quarta).
 
 rouboMartelo(P) :- apartamento(P, quarta);apartamento(P, quinta).
 
-armaCrime(P) :- rouboBastao(P);rouboMartelo(P).
+arma(P) :- rouboBastao(P);rouboMartelo(P).
 
-rouboChave(P) :- santaMaria(P,segunda);portoAlegre(P, terca).
+chave(bia).
+chave(P) :- santaMaria(P,segunda);portoAlegre(P, terca).
 
-acesso(P) :- armaCrime(P), rouboChave(P), (apartamento(P,quinta); apartamento(P,sexta)).
+acesso(P) :- arma(P), chave(P), (apartamento(P,quinta); apartamento(P,sexta)).
 
-assassino(P) :- motivacao(P), acesso(P).
+assassino(P) :- motivo(P), acesso(P),!.
