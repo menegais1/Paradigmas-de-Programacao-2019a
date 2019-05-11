@@ -1,0 +1,10 @@
+{application,lista_telefonica,
+             [{applications,[kernel,stdlib,elixir,logger,poison,cowboy,plug,
+                             plug_cowboy]},
+              {description,"lista_telefonica"},
+              {modules,['Elixir.ListaTelefonica.Application',
+                        'Elixir.ListaTelefonica.Endpoint',
+                        'Elixir.ListaTelefonica.Router']},
+              {registered,[]},
+              {vsn,"0.1.0"},
+              {mod,{'Elixir.ListaTelefonica.Application',[]}}]}.
