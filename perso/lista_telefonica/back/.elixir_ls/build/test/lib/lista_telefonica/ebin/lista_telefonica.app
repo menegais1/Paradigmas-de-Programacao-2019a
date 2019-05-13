@@ -3,6 +3,7 @@
                              plug_cowboy]},
               {description,"lista_telefonica"},
               {modules,['Elixir.ListaTelefonica.Application',
+                        'Elixir.ListaTelefonica.Data',
                         'Elixir.ListaTelefonica.Endpoint',
                         'Elixir.ListaTelefonica.Router']},
               {registered,[]},

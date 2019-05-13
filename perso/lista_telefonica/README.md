@@ -1,21 +1,51 @@
-# ListaTelefonica
+# Lista Telefonica
 
-**TODO: Add description**
+A aplicação foi construida com intuito de expor uma API RESTful simples usando Elixir, consumindo os dados da API usando Vue.js para agilizar o desenvolvimento
 
-## Installation
+  - Elixir usando Plug e Cowboy
+  - Vue.js usando Axios e vue-router
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `lista_telefonica` to your list of dependencies in `mix.exs`:
+### Tecnologia
 
-```elixir
-def deps do
-  [
-    {:lista_telefonica, "~> 0.1.0"}
-  ]
-end
+  - Elixir usando Plug e Cowboy
+  - Vue.js usando Axios e vue-router
+
+### Instalação
+
+ - Elixir
+
+Instale as dependencias
+
+```sh
+$ wget https://packages.erlang-solutions.com/erlang-solutions_1.0_all.deb && sudo dpkg -i erlang-solutions_1.0_all.deb
+$ sudo apt-get update
+$ sudo apt-get install esl-erlang
+$ sudo apt-get install elixir
+```
+Construa o Projeto e rode o servidor
+
+```sh
+$ cd lista_telefonica/back
+$ mix do deps.get, deps.compile, compile
+$ mix run --no-halt
+```
+- Vue
+
+Instale as dependencias
+
+```sh
+$ sudo apt-get update
+$ sudo apt install nodejs npm
+$ sudo apt install npm
 ```
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/lista_telefonica](https://hexdocs.pm/lista_telefonica).
+Construa o projeto e rode o servidor
+
+```sh
+$ cd lista_telefonica/front
+$ npm i
+$ npm run serve
+```
+
+Com isso ambos Elixir e Vue estarão rodando na máquina, por padrão a porta na qual a API vai rodar será na 4000.
 
