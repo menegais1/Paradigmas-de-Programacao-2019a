@@ -2,9 +2,6 @@
 
 A aplicação foi construida com intuito de expor uma API RESTful simples usando Elixir, consumindo os dados da API usando Vue.js para agilizar o desenvolvimento
 
-  - Elixir usando Plug e Cowboy
-  - Vue.js usando Axios e vue-router
-
 ### Tecnologia
 
   - Elixir usando Plug e Cowboy
