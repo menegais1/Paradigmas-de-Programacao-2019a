@@ -2,11 +2,10 @@ package View;
 
 import Controller.NameListController;
 import Controller.OfflinePickController;
-import Controller.OnlinePickController;
 
 import java.util.Scanner;
 
-public class CmdView {
+public class CMDView implements View {
 
 
     private final char CMD_FILE = '1';
@@ -15,17 +14,20 @@ public class CmdView {
 
     private final char SHUFFLE_FILE = '1';
     private final char PICK_ITEM = '2';
-    private final char OFFLINE_SHUFFLE = '3';
-    private final char ONLINE_SHUFFLE = '4';
 
-    private final String DEFAULT_FILE_PATH = "./names.txt";
+    private final String DEFAULT_FILE_PATH = "names.txt";
 
     private NameListController controller;
 
-    public void init(String path) {
+    @Override
+    public void init(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        String path = "";
         System.out.println("Olá, bem vindo ao RandomPickerCmd!!");
-        System.out.println("Para usar o arquivo fornecido na linha de comando, digite: " + CMD_FILE);
+        if (args != null && args.length > 0) {
+            System.out.println("Para usar o arquivo fornecido na linha de comando, digite: " + CMD_FILE);
+            path = args[0];
+        }
         System.out.println("Para usar o arquivo padrão, digite: " + DEFAULT_FILE);
         System.out.println("Para sair do programa, digite: " + EXIT);
         char option = scanner.next().charAt(0);
@@ -52,8 +54,6 @@ public class CmdView {
             if (controller.isFileShuffled) {
                 System.out.println("Para pegar um nome, digite: " + PICK_ITEM);
             }
-            System.out.println("Para mudar o método de embaralhar para OFFLINE, digite: " + OFFLINE_SHUFFLE);
-            System.out.println("Para mudar o método de embaralhar para ONLINE, digite: " + ONLINE_SHUFFLE);
             System.out.println("Para sair do programa, digite: " + EXIT);
 
             option = scanner.next().charAt(0);
@@ -61,16 +61,13 @@ public class CmdView {
             switch (option) {
                 case SHUFFLE_FILE:
                     controller.shuffle();
-                    if(!controller.isFileShuffled) System.out.println("Não foi possivel embaralhar o arquivo");
+                    if (!controller.isFileShuffled) System.out.println("Não foi possivel embaralhar o arquivo");
                     break;
                 case PICK_ITEM:
-                    System.out.println(controller.pick());
-                    break;
-                case OFFLINE_SHUFFLE:
-                    controller.setController(new OfflinePickController());
-                    break;
-                case ONLINE_SHUFFLE:
-                    controller.setController(new OnlinePickController());
+                    String str = controller.pick();
+                    if (str == null) {
+                        System.out.println("Lista Vazia");
+                    } else System.out.println("Item: " + str);
                     break;
                 case EXIT:
                     System.out.println("Até mais!!");

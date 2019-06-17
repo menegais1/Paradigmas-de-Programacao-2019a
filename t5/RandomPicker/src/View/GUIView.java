@@ -17,7 +17,7 @@ import javafx.stage.Stage;
 
 import java.io.File;
 
-public class GuiView extends Application {
+public class GUIView extends Application implements View {
 
     private NameListController controller;
     private TextArea textArea;
@@ -49,17 +49,16 @@ public class GuiView extends Application {
             @Override
             public void handle(ActionEvent actionEvent) {
                 String str = controller.pick();
-                if (str == null){
+                if (str == null) {
                     next.setDisable(true);
                     label.setText("Item: Lista Vazia");
-                }
-                else label.setText("Item: " + str);
+                } else label.setText("Item: " + str);
             }
         });
         next.setDisable(true);
         root.setLeft(shuffle);
         root.setRight(next);
-        primaryStage.setTitle("Hello World");
+        primaryStage.setTitle("Random Picker");
         primaryStage.setScene(new Scene(root, 500, 500));
         primaryStage.show();
     }
@@ -118,16 +117,6 @@ public class GuiView extends Application {
         textArea.setPromptText("Dados do arquivo ou usuário");
         textArea.setMaxWidth(200);
         textArea.setMaxHeight(200);
-//        textArea.setOnKeyTyped(new EventHandler<KeyEvent>() {
-//            @Override
-//            public void handle(KeyEvent keyEvent) {
-//                if (keyEvent.getCode().equals(KeyCode.ENTER) ||
-//                        keyEvent.getCharacter().getBytes()[0] == '\n' ||
-//                        keyEvent.getCharacter().getBytes()[0] == '\r') {
-//                    controller.updateNames(textArea.getText());
-//                }
-//            }
-//        });
         label = new Label("Item: Lista não embaralhada");
         vBox.setAlignment(Pos.CENTER);
         vBox.getChildren().add(label);
@@ -135,6 +124,7 @@ public class GuiView extends Application {
         borderPane.setCenter(vBox);
     }
 
+    @Override
     public void init(String[] args) {
         launch(args);
     }

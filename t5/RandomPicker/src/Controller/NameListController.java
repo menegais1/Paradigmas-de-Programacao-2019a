@@ -2,6 +2,7 @@ package Controller;
 
 
 import Model.NameList;
+import javafx.application.Application;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -20,6 +21,7 @@ public class NameListController {
     }
 
     public boolean initNameList(String path) {
+        System.out.println(path);
         this.nameList = new NameList(path);
         return this.nameList.load();
     }
