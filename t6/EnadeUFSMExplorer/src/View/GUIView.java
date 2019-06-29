@@ -26,6 +26,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class GUIView extends Application implements View {
 
@@ -49,6 +50,14 @@ public class GUIView extends Application implements View {
         reload.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
+                String error = csvLoaderController.loadCsv(true);
+                if (error != null) {
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setTitle("Erro");
+                    alert.setHeaderText("An error has occurred");
+                    alert.setContentText(error);
+                    alert.showAndWait();
+                }
 
             }
         });
@@ -56,7 +65,13 @@ public class GUIView extends Application implements View {
         source.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
+                TextInputDialog dialog = new TextInputDialog(CsvLoaderController.DEFAULT_URL);
+                dialog.setTitle("Selecione a URL");
+                dialog.setHeaderText("Source for data table");
+                dialog.setContentText("Please enter with a new source:");
 
+                Optional<String> result = dialog.showAndWait();
+                result.ifPresent(name -> csvLoaderController.setUrl(name));
             }
         });
 
@@ -95,7 +110,15 @@ public class GUIView extends Application implements View {
 
         TableView<EnadeRow> table = new TableView<>();
         csvLoaderController = new CsvLoaderController();
-        csvLoaderController.loadCsv();
+        String error = csvLoaderController.loadCsv(false);
+
+        if (error != null) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Erro");
+            alert.setHeaderText("An error has occurred");
+            alert.setContentText(error);
+            alert.showAndWait();
+        }
 
         List<TableColumn<EnadeRow, String>> tableColumns = new ArrayList<>();
         List<String> prettyNames = csvLoaderController.getFieldListPrettyNames();

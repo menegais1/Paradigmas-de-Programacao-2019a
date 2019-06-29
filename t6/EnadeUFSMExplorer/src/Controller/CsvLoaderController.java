@@ -8,6 +8,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.Reader;
 import java.nio.file.Files;
@@ -17,30 +18,36 @@ import java.util.List;
 
 public class CsvLoaderController {
 
-    private List<EnadeRow> enadeRows;
+    private ObservableList<EnadeRow> enadeRows;
     private String path;
-    private final String DEFAULT_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTO06Jdr3J1kPYoTPRkdUaq8XuslvSD5--FPMht-ilVBT1gExJXDPTiX0P3FsrxV5VKUZJrIUtH1wvN/pub?gid=0&single=true&output=csv";
-    private final String DEFAULT_PATH = "enade.csv";
+    private String url;
+    public static final String DEFAULT_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTO06Jdr3J1kPYoTPRkdUaq8XuslvSD5--FPMht-ilVBT1gExJXDPTiX0P3FsrxV5VKUZJrIUtH1wvN/pub?gid=0&single=true&output=csv";
+    public static final String DEFAULT_PATH = "enade.csv";
 
     public CsvLoaderController(String path) {
-        this.enadeRows = new ArrayList<>();
         this.path = path;
+        this.url = DEFAULT_URL;
     }
 
     public CsvLoaderController() {
-        this.enadeRows = new ArrayList<>();
         this.path = DEFAULT_PATH;
+        this.url = DEFAULT_URL;
     }
 
-    public void loadCsv() {
-        if (path == null) return;
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public String loadCsv(boolean online) {
+        if (path == null) return null;
 
         Reader reader = null;
         try {
             File f = Paths.get(this.path).toFile();
-            if (!f.exists()) {
+            if (!f.exists() || online) {
                 DownloadController downloadController = new DownloadController();
-                downloadController.downloadCsv(DEFAULT_URL, this.path);
+                String error = downloadController.downloadCsv(this.url, this.path);
+                if (error != null) return error;
             }
 
             reader = Files.newBufferedReader(f.toPath());
@@ -49,18 +56,21 @@ public class CsvLoaderController {
             csvToBeanBuilder.withType(EnadeRow.class);
             CsvToBean<EnadeRow> csvToBean = csvToBeanBuilder.build();
 
-            this.enadeRows = csvToBean.parse();
+            List<EnadeRow> list = csvToBean.parse();
+            this.enadeRows = FXCollections.observableArrayList(list);
 
+        } catch (FileNotFoundException e) {
+            return "File not found";
         } catch (IOException e) {
-            System.out.println(e.toString());
+            return "Error on reading file";
         }
 
+        return null;
     }
 
     public ObservableList<EnadeRow> getRows() {
         if (this.enadeRows == null) return null;
-        ObservableList<EnadeRow> observableList = FXCollections.observableArrayList(this.enadeRows);
-        return observableList;
+        return this.enadeRows;
     }
 
     public List<String> getFieldListPrettyNames() {
