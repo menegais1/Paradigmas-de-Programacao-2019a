@@ -1,0 +1,4 @@
+https://api.github.com/repos/menegais1/Dementia/commits
+https://api.github.com/repos/menegais1/Paradigmas-de-Programacao-2019a/commits
+https://api.github.com/repos/menegais1/LZW84-Bidirectional/commits
+https://api.github.com/repos/menegais1/Projeto-Mecanica/commits
