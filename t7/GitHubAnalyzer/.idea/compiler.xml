@@ -6,6 +6,12 @@
       <module name="1.test" target="1.8" />
       <module name="EnadeUFSMExplorer.java.main" target="1.8" />
       <module name="EnadeUFSMExplorer.java.test" target="1.8" />
+      <module name="EnadeUFSMExplorer.main" target="1.8" />
+      <module name="EnadeUFSMExplorer.test" target="1.8" />
+      <module name="Git.main" target="1.8" />
+      <module name="Git.test" target="1.8" />
+      <module name="GitHubAna.main" target="1.8" />
+      <module name="GitHubAna.test" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

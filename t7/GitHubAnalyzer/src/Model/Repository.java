@@ -1,6 +1,8 @@
 package Model;
 
+import java.time.Instant;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class Repository {
@@ -40,6 +42,14 @@ public class Repository {
         return commitNumber;
     }
 
+    public Date getFirstCommitDate() {
+        return Date.from(Instant.parse(commitList.get(commitNumber - 1).getAuthor().getDate()));
+    }
+
+    public Date getLastCommitDate() {
+        return Date.from(Instant.parse(commitList.get(0).getAuthor().getDate()));
+    }
+
     public void setCommitNumber(int commitNumber) {
         this.commitNumber = commitNumber;
     }
@@ -53,10 +63,9 @@ public class Repository {
     @Override
     public String toString() {
         return "Repository{" +
-                "repoUrl='" + repoUrl + '\'' +
-                ", commitNumber=" + commitNumber +
-                ", totalCommitMessageSize=" + totalCommitMessageSize +
-                ", mediumCommitMessageSize=" + mediumCommitMessageSize +
+                "Url='" + repoUrl + '\'' +
+                ", Núm. commits=" + commitNumber +
+                ", Tam. médio da mensagem=" + mediumCommitMessageSize +
                 '}';
     }
 }

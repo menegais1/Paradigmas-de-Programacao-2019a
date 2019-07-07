@@ -5,7 +5,6 @@ import Controller.UrlFileLoaderController;
 import Model.Repository;
 import javafx.application.Application;
 import javafx.application.Platform;
-import javafx.collections.ObservableList;
 import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -13,6 +12,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
@@ -35,7 +36,6 @@ public class GUIView extends Application implements View {
 
         BorderPane root = new BorderPane();
         initMenu(primaryStage, root);
-//        initTableView(primaryStage, root);
         primaryStage.setTitle("GitHubAnalyzer");
         primaryStage.setScene(new Scene(root, 1280, 700));
         primaryStage.show();
@@ -157,6 +157,13 @@ public class GUIView extends Application implements View {
         table.getColumns().addAll(tableColumns);
         table.setItems(commitAnalyzerController.getRepositories());
 
+        VBox box = new VBox();
+        Label mostCommitsRepo = new Label(commitAnalyzerController.getMostCommitsRepo());
+        Label lessCommitsRepo = new Label(commitAnalyzerController.getLessCommitsRepo());
+        Label mostRecentCommitRepo = new Label(commitAnalyzerController.getMostRecentCommitRepo());
+        Label olderCommitRepo = new Label(commitAnalyzerController.getOlderCommitRepo());
+        box.getChildren().addAll(mostCommitsRepo, lessCommitsRepo, mostRecentCommitRepo, olderCommitRepo);
+        borderPane.setBottom(box);
         borderPane.setCenter(table);
     }
 

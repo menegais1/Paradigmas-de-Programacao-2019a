@@ -5,7 +5,6 @@ public class Commit {
 
     private String message;
     private Author author;
-
     public Commit(String message, Author author) {
         this.message = message;
         this.author = author;
